@@ -50,6 +50,7 @@ source=(https://webkitgtk.org/releases/webkitgtk-${pkgver}.tar.xz
         0022-gl-casts.patch
         0101-webkitgtk-2.4.3-gcc-asm.all.patch
         0102-fix-build-with-icu-59.1.patch
+		0103-SingleThread.patch
         webkitgtk-2.4.9-abs.patch
         enchant-2.x.patch)
 
@@ -60,6 +61,7 @@ prepare() {
   patch -p1 -i ${srcdir}/0022-gl-casts.patch
   patch -p1 -i ${srcdir}/0101-webkitgtk-2.4.3-gcc-asm.all.patch
   patch -p1 -i ${srcdir}/0102-fix-build-with-icu-59.1.patch
+  patch -p1 -i ${srcdir}/0103-SingleThread.patch
   # borrowed from Arch Linux
   patch -p1 -i ${srcdir}/webkitgtk-2.4.9-abs.patch
   patch -p1 -i ${srcdir}/enchant-2.x.patch
