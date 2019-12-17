@@ -1,8 +1,6 @@
-diff --git "a/mingw-w64-webkitgtk/src/webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4" "b/mingw-w64-webkitgtk/src/webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4"
-index 5302f9899..01ebbed26 100644
---- "a/mingw-w64-webkitgtk/src/webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4"
-+++ "b/mingw-w64-webkitgtk/src/webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4"
-@@ -58,6 +58,10 @@ else
+--- webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4
++++ webkitgtk-2.4.11/Source/autotools/SetupCompilerFlags.m4
+@@ -58,6 +58,10 @@
      CFLAGS="$CFLAGS -O0"
  fi
  
