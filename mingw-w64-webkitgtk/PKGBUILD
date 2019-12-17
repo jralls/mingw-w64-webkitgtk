@@ -52,6 +52,7 @@ source=(https://webkitgtk.org/releases/webkitgtk-${pkgver}.tar.xz
         0101-webkitgtk-2.4.3-gcc-asm.all.patch
         0102-fix-build-with-icu-59.1.patch
 		0103-SingleThread.patch
+		0104-Fix-for-FORTIFY_SOURCE.patch
 		0200-fix-build-with-StuctureInlines.h.patch
 		0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
         webkitgtk-2.4.9-abs.patch
@@ -65,6 +66,7 @@ prepare() {
   patch -p1 -i ${srcdir}/0101-webkitgtk-2.4.3-gcc-asm.all.patch
   patch -p1 -i ${srcdir}/0102-fix-build-with-icu-59.1.patch
   patch -p1 -i ${srcdir}/0103-SingleThread.patch
+  patch -pl -i ${srcdir}/0104-Fix-for-FORTIFY_SOURCE.patch
   patch -pl -i ${srcdir}/0200-fix-build-with-StuctureInlines.h.patch
   patch -pl -i ${srcdir}/0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
   # borrowed from Arch Linux
