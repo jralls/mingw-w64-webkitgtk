@@ -55,6 +55,7 @@ source=(https://webkitgtk.org/releases/webkitgtk-${pkgver}.tar.xz
 		0104-Fix-for-FORTIFY_SOURCE.patch
 		0200-fix-build-with-StuctureInlines.h.patch
 		0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
+		0202-fix-trailing-semi-on-macro.patch
         webkitgtk-2.4.9-abs.patch
         enchant-2.x.patch)
 
@@ -69,7 +70,8 @@ prepare() {
   patch -p1 -i ${srcdir}/0104-Fix-for-FORTIFY_SOURCE.patch
   patch -p1 -i ${srcdir}/0200-fix-build-with-StuctureInlines.h.patch
   patch -p1 -i ${srcdir}/0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
-  # borrowed from Arch Linux
+  patch -p1 -i ${srcdir}/0202-fix-trailing-semi-on-macro.patch
+# borrowed from Arch Linux
   patch -p1 -i ${srcdir}/webkitgtk-2.4.9-abs.patch
   patch -p1 -i ${srcdir}/enchant-2.x.patch
 
@@ -85,7 +87,7 @@ _build() {
 
   export PYTHON=/usr/bin/python2
   export RUBY=${MINGW_PREFIX}/bin/ruby
-  export CPPFLAGS="${CPPFLAGS} -w 
+  export CPPFLAGS="${CPPFLAGS} -w"
 # -Wno-class-memaccess -Wno-deprecated-copy -Wno-expansion-to-defined -Wno-redundant-move"
 
   ../${_realname}-${pkgver}/configure \
@@ -111,7 +113,7 @@ _build() {
     --enable-egl=no \
     "$@"
 
-  make -j1
+  make -j
 }
 
 build() {
@@ -134,7 +136,7 @@ build() {
 #  depends+=(${MINGW_PACKAGE_PREFIX}-gtk2)
 #  #provides=("${MINGW_PACKAGE_PREFIX}-libwebkit2=${pkgver}")
 #  cd "${srcdir}/build-gtk2"
-#  make -j1 DESTDIR="${pkgdir}" install
+#  make -j DESTDIR="${pkgdir}" install
 #  find "${pkgdir}${MINGW_PREFIX}" -name '*.def' -o -name '*.exp' | xargs -rtl1 rm
 #}
 
@@ -173,5 +175,6 @@ sha256sums=('588aea051bfbacced27fdfe0335a957dca839ebe36aa548df39c7bbafdb65bf7'
             'aba0f436b10527f43e348dabd9fbfe3d99a4bdec81192db8805df31c6b2327c7'
             'ff17b9a91147df077cefc1f97dbede017252cb81a4c745c96c587b3c52ecfac7'
             '393cfe80aa0aa22445bfd542750bff9177a21400ee6280cfe954a2aeacff0fad'
+            'a39241fe2a46f0596657c977c8477a6997e3376e467cd761ab571f744a9596cd'
             'ec294bbb5588a1802a68e3615c6718486b22f922645c5fef686d3d103014bf70'
             '3bdb4c57c5ff4a86706282905b0f1d4a44a25dd3d6185d94871994db6fdb9b79')
