@@ -85,6 +85,8 @@ _build() {
 
   export PYTHON=/usr/bin/python2
   export RUBY=${MINGW_PREFIX}/bin/ruby
+  export CPPFLAGS="${CPPFLAGS} -w 
+# -Wno-class-memaccess -Wno-deprecated-copy -Wno-expansion-to-defined -Wno-redundant-move"
 
   ../${_realname}-${pkgver}/configure \
     --prefix=${MINGW_PREFIX} \
