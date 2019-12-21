@@ -51,11 +51,11 @@ source=(https://webkitgtk.org/releases/webkitgtk-${pkgver}.tar.xz
         0022-gl-casts.patch
         0101-webkitgtk-2.4.3-gcc-asm.all.patch
         0102-fix-build-with-icu-59.1.patch
-		0103-SingleThread.patch
-		0104-Fix-for-FORTIFY_SOURCE.patch
-		0200-fix-build-with-StuctureInlines.h.patch
-		0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
-		0202-fix-trailing-semi-on-macro.patch
+	0103-SingleThread.patch
+	0104-Fix-for-FORTIFY_SOURCE.patch
+	0200-fix-build-with-StuctureInlines.h.patch
+	0201-fix-build-WebKitTestRunnerGNUMakefile.am.patch
+	0202-fix-trailing-semi-on-macro.patch
         webkitgtk-2.4.9-abs.patch
         enchant-2.x.patch)
 
