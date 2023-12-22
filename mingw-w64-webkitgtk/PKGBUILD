@@ -107,7 +107,6 @@ _build() {
     --enable-accelerated-compositing=no \
     --enable-debug-symbols=min \
     --disable-webkit2 \
-    --disable-glibtest \
     --disable-static \
     --enable-shared \
     --enable-optimizations \
