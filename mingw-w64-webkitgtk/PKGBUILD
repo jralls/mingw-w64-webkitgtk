@@ -1,3 +1,19 @@
+#Makepkg args:
+# https://www.msys2.org/wiki/Creating-Packages/ says to use -sCLf that does:
+# -s Install missing dependencies using PacMan
+# -C Clean the source directory before starting
+# -L Tee the output to the console and to a log file
+# -f Force the build even if there's already a package tarball present
+#
+# Other useful flags
+# -d Don't do the dependency checks
+# -e Don't do the prepare step, use the current contents of the source directory
+# -R Don't build, just make the dist tarball
+# --sign Sign the package with GPG
+#
+# WARNING: Patch is stupid so always use either -C or -e otherwise some patches
+# may get duplicated and break the build.
+
 # Maintainer: Alexey Pavlov <alexpux@gmail.com>
 
 _realname=webkitgtk
@@ -10,7 +26,7 @@ pkgdesc="GTK+ Web content engine library (mingw-w64)"
 arch=('any')
 url="https://webkitgtk.org/"
 license=("custom")
-options=('!libtool' 'strip' '!debug' 'staticlibs' 'buildflags')
+options=('!libtool' '!strip' '!debug' 'staticlibs' 'buildflags')
 makedepends=("${MINGW_PACKAGE_PREFIX}-gcc"
              "${MINGW_PACKAGE_PREFIX}-gobject-introspection"
              "${MINGW_PACKAGE_PREFIX}-gtk3"
@@ -121,9 +137,8 @@ _build() {
     --enable-video=no \
     --enable-geolocation=no \
     "$@"
-  echo "Starting build"
-  make -j1
-  echo "build complete"
+
+  make -j4
 }
 
 build() {
