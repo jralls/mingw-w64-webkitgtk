@@ -76,6 +76,7 @@ source=(https://webkitgtk.org/releases/webkitgtk-${pkgver}.tar.xz
 	0601-const-XmlError.patch
         0701-ruby-annotation-re-deleted.patch
         0702-use-c++17-for-icu-compat.patch
+        0703-less-optimization.patch
         webkitgtk-2.4.9-abs.patch
         enchant-2.x.patch)
 
@@ -100,6 +101,7 @@ prepare() {
   patch -p1 -i ${srcdir}/0601-const-xmlError.patch
   patch -p1 -i ${srcdir}/0701-ruby-annotation-re-deleted.patch
   patch -p1 -i ${srcdir}/0702-use-c++17-for-icu-compat.patch
+  patch -p1 -i ${srcdir}/0703-less-optimization.patch
   # borrowed from Arch Linux
   patch -p1 -i ${srcdir}/webkitgtk-2.4.9-abs.patch
   patch -p1 -i ${srcdir}/enchant-2.x.patch
@@ -143,7 +145,7 @@ _build() {
     --enable-geolocation=no \
     "$@"
 
-  make -j4
+  make -j8
 }
 
 build() {
@@ -215,5 +217,6 @@ sha256sums=('588aea051bfbacced27fdfe0335a957dca839ebe36aa548df39c7bbafdb65bf7'
 	    'c10803b2f6f60c9d0035b7a78b62b0ccd3158dda4376d12248645087d00a7746'
             'b396dddcc8bf9004a6797c9594b701ae026db91847458a3f49570d7a6d579624'
             '855a5b0575cefa57ec3564550b06ee4c6c3d20377d1b3816c9f9d972146cccf5'
+            '4c2576a53bc9ebd6d586d3559365cda744935a22c16a5f62c727743f139e0f07'
             'ec294bbb5588a1802a68e3615c6718486b22f922645c5fef686d3d103014bf70'
             '3bdb4c57c5ff4a86706282905b0f1d4a44a25dd3d6185d94871994db6fdb9b79')
